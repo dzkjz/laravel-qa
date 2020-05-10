@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
+    /**git
      * The attributes that are mass assignable.
      *
      * @var array
@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     public function questions()
     {
-        return $this->hasMany(Question::class, 'id', 'creator_id');
+        return $this->hasMany(Question::class,  'creator_id','id');
     }
 
 

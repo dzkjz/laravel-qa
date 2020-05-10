@@ -12,7 +12,7 @@ class Question extends Model
 
     public function creator()
     {
-        return $this->belongsTo(User::class, 'creator_id', 'id');
+        return $this->belongsTo(User::class, 'id', 'creator_id');
     }
 
     public function setTitleAttribute($value)
