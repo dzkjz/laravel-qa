@@ -12,7 +12,12 @@ class Question extends Model
 
     public function creator()
     {
-        return $this->belongsTo(User::class, 'id', 'creator_id');
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('questions.show', $this->id);
     }
 
     public function setTitleAttribute($value)
@@ -21,4 +26,10 @@ class Question extends Model
         //设置slug
         $this->attributes['slug'] = Str::slug($value);
     }
+
+    public function getCreatedDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
 }
